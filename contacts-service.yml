@@ -1,1 +1,10 @@
-ывавыва
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test-db
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
