@@ -1,4 +1,4 @@
-spring:
+....вававававspring:
   datasource:
     url: jdbc:postgresql://localhost:5432/test-db
     driver-class-name: org.postgresql.Driver
