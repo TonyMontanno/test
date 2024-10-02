@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test-db
+    username: postgres
+    password: postgres
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+  resilience4j:
+    circuitbreaker:
+      instances:
+        phone-code-service:
+          failureRateThreshold: 50
+          automaticTransitionFromOpenToHalfOpenEnabled: true
+          waitDurationInOpenState: 10s
+          slidingWindowType: COUNT_BASED
+          slidingWindowSize: 2
+          minimumNumberOfCalls: 1
+          eventConsumerBufferSize: 10
+          registerHealthIndicator: true
+          permittedNumberOfCallsInHalfOpenState: 3
+    retry:
+      instances:
+        phone-code-service:
+          max-attempts: 5
+          wait-duration: 5000
